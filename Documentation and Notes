@@ -1,9 +1,28 @@
 Why I started this:
-The reason why I started this project is based on my personal interest in sports. I spend a lot of my time tracking different teams in multiple leagues across Europe. I’ve been a fan since 2014, and my newest interest in football is the Italian league. In my preparation to support a specific team in the league, I kept noticing a stat “xG” in the post-match statistics. As a football fan I was roughly aware of what this meant, it served as a composite score that indicated the attacking performance of a team in a game. However, as a data scientist, I realised I had no idea what it represented. So I decided to create this project as a personal experience to investigate behind the curtain of this complex statistic and then attempt to create one of my own. 
+The reason why I started this project is based on my personal interest in sports. 
+I spend a lot of my time tracking different teams in multiple leagues across Europe. 
+I’ve been a fan since 2014, and my newest interest in football is the Italian league. 
+In my preparation to support a specific team in the league, I kept noticing a stat “xG” in the post-match statistics. 
+As a football fan I was roughly aware of what this meant, it served as a composite score that indicated the attacking performance of a team in a game. 
+However, as a data scientist, I realised I had no idea what it represented. 
+So I decided to create this project as a personal experience to investigate behind the curtain of this complex statistic and then attempt to create one of my own. 
 
 Data Sourcing:
-I chose StatsBomb because, from my research, it was the most comprehensive and free data source on football I could find. I had access to a lot of different leagues across certain time periods.The data I chose to start exploring with is the Serie A in 2015/16. The Serie A is the italian league, the league I had recently chosen to follow and I chose the 2015/16 season because many fans refer to that season as the beginning of the decline of the league. I wanted to source the data from an era of the league when the league was still quite competitive (a little unlike now).  
+I chose StatsBomb because, from my research, it was the most comprehensive and free data source on football I could find. 
+I had access to a lot of different leagues across certain time periods.The data I chose to start exploring with is the Serie A in 2015/16. 
+The Serie A is the italian league, the league I had recently chosen to follow and I chose the 2015/16 season because many fans refer to that 
+season as the beginning of the decline of the league. 
+I wanted to source the data from an era of the league when the league was still quite competitive (a little unlike now).  
 
 Initial feature choices and reasoning:
-Through my research, I found that two factors were clearly included in every form of xG model I found. It’s a bit obvious, but it's the distance and angle from the goal when the shot was made. While the distance was quite easy to compute thanks to StatBomb’s exact coordinate data for each shot, the angle to goal was a more difficult process that ended up taking a lot more time. Initially I tried calculating the angle of the shot in respect to the center of the goal (which is what I used to calculate the distance to goal) but that didn’t make much sense because in football, if you’re approaching from the side of the goal, for example, the goal looks a lot more narrower. If we only calculate the angle to a single point this would not be represented in our model. So, instead, after some troubleshooting, I calculated the angle from the shooter to the left goalpost and then the right goalpost and then the difference between them: essentially determining how “wide” the goal would seem to the attacker from that angle. Lastly I included body parts, it’s a lot easier to score with a foot than your head which changes the shot quality of the attempt. 
+Through my research, I found that two factors were clearly included in every form of xG model I found. 
+It’s a bit obvious, but it's the distance and angle from the goal when the shot was made. 
+While the distance was quite easy to compute thanks to StatBomb’s exact coordinate data for each shot, the angle to goal was a more difficult process 
+that ended up taking a lot more time. 
+Initially I tried calculating the angle of the shot in respect to the center of the goal (which is what I used to calculate the distance to goal) but
+that didn’t make much sense because in football, if you’re approaching from the side of the goal, for example, the goal looks a lot more narrower. 
+If we only calculate the angle to a single point this would not be represented in our model. 
+So, instead, after some troubleshooting, I calculated the angle from the shooter to the left goalpost and then the right goalpost
+and then the difference between them: essentially determining how “wide” the goal would seem to the attacker from that angle. 
+Lastly I included body parts, it’s a lot easier to score with a foot than your head which changes the shot quality of the attempt. 
 
