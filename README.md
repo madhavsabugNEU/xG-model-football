@@ -31,8 +31,6 @@ This is a solo project. So far I have:
 ## Results
 Still in progress
 
-![Chart description](path/to/chart.png)
-
 ## Tech Stack
 
 - Python
